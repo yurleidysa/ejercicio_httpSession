@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    <p id="msg"></p>
+
+    <form action="Servlet1" method="POST">
+    <h2>Inicie sesion</h2>
+        Nombre: <input type="text" name="userName" required
+                     minlength="3" maxlength="30"
+                     pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,30}"
+                     title="Solo letras y espacios (3 a 30 caracteres)" /><br />
+        <input type="submit" value="go" />
+    </form>
+
+    <script>
+        const e = new URLSearchParams(location.search).get("e");
+        if (e === "1") msg.textContent = "Nombre inválido.";
+        if (e === "2") msg.textContent = "Debes iniciar sesión primero.";
+        if (e === "3") msg.textContent = "Sesión cerrada.";
+    </script>
+
+</body>
+</html>
